@@ -1,8 +1,31 @@
 @import 'tailwindcss';
 
 :root {
+  /* Base colors */
   --background: #ffffff;
   --foreground: #171717;
+
+    /* Design system colors */
+    --slate-950: #0f172a;
+    --teal-500: #14b8a6;
+    --blue-500: #3b82f6;
+    
+    /* Gradients */
+    --gradient-accent: linear-gradient(135deg, #14b8a6, #3b82f6);
+    
+    /* Glass morphism - creates that frosted glass effect */
+    --glass-bg: rgba(255, 255, 255, 0.05);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: 12px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0f172a; /* Using our slate-950 */
+    --foreground: #ededed;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+  }
 }
 
 @theme inline {
@@ -12,15 +35,19 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Glass morphism utility class we'll use in components */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
 }
