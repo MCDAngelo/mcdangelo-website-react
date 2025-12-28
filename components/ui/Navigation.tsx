@@ -13,7 +13,8 @@ export function Navigation() {
   
     // Close mobile menu when route changes
     useEffect(() => {
-      setIsMobileMenuOpen(false);
+        // eslint-disable-next-line react-hooks/set-state-in-effect
+        setIsMobileMenuOpen(false);
     }, [pathname]); // pathname is the dependency that triggers the effect
   
     // Prevent body scroll when mobile menu is open
