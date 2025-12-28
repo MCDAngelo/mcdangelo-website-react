@@ -1,7 +1,12 @@
 import { BentoCard } from '@/components/ui/BentoCard';
+import { Navigation } from '@/components/ui/Navigation';
+import { Footer } from '@/components/ui/Footer';
 
 export default function Home() {
   return (
+    <>
+      <Navigation />
+      <main>
     <div className="mx-auto max-w-7xl px-6 py-20">
       <h1 className="mb-12 text-6xl font-bold">
         Portfolio
@@ -22,9 +27,12 @@ export default function Home() {
         />
         
         <BentoCard title="Adventures">
-          <p>Photo galleries coming soon!</p>
-        </BentoCard>
+            <p>Photo galleries coming soon!</p>
+          </BentoCard>
+        </div>
       </div>
-    </div>
+    </main>
+    <Footer />
+    </>
   );
 }
