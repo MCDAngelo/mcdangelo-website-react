@@ -281,6 +281,7 @@ async function uploadImages() {
             storagePath = webpPath;
           }
         } catch (e) {
+          console.log('Error occurred while checking WebP version:', e);
           // WebP doesn't exist, use original path
         }
       }
