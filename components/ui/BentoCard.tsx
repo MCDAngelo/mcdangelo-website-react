@@ -18,7 +18,7 @@ interface BentoCardProps {
     href?: string;
     icon?: ReactNode
     className?: string;
-    size?: '1x' | '2x';
+    size?: '1x' | '2x' | '3x';
     children?: ReactNode;
 }
 
@@ -35,6 +35,7 @@ export function BentoCard({
     const sizeClasses = {
         '1x': 'col-span-1',
         '2x': 'col-span-1 md:col-span-2',
+        '3x': 'col-span-1 md:col-span-2 lg:col-span-3',
     };
 
     const cardContent = (
