@@ -35,7 +35,7 @@ export function ImageGallery({ items, layout = 'grid' }: ImageGalleryProps) {
         }>
             {items.map((item, i) => (
                 <div key={item.src}
-                className={`relative cursor-zoom-in overflow-hidden rounded-lg bg-gray-100 ${
+                className={`group relative cursor-zoom-in overflow-hidden rounded-lg bg-gray-100 ${
                     layout === 'masonry' ? 'mb-4 break-inside-avoid' : 'aspect-video'
                 }`}
                 onClick={() => setIndex(i)}
@@ -49,6 +49,11 @@ export function ImageGallery({ items, layout = 'grid' }: ImageGalleryProps) {
                         className="object-cover transition-transform duration-300 hover:scale-105"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
+                    
+                    {/* Hover Tooltip/Caption */}
+                    <div className="absolute inset-0 flex items-end bg-gradient-to-t from-black/60 to-transparent p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                        <p className="text-sm font-medium text-white">{item.title}</p>
+                    </div>
                 </div>
             ))}
         </div>
