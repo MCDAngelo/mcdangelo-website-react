@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Lightbox from "yet-another-react-lightbox";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/styles.css";
+import "yet-another-react-lightbox/plugins/captions.css";
 
 
 export interface GalleryItem {
@@ -63,6 +64,7 @@ export function ImageGallery({ items, layout = 'grid' }: ImageGalleryProps) {
                 title: item.title,
                 description: item.description,
             }))}
+            captions={{ showToggle: true, descriptionTextAlign: 'start' }}
         />
         </>
     );
