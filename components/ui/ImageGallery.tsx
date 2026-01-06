@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import Image from 'next/image';
+import { OptimizedImage } from './OptimizedImage';
 import Lightbox from "yet-another-react-lightbox";
 import Captions from "yet-another-react-lightbox/plugins/captions";
 import "yet-another-react-lightbox/styles.css";
@@ -40,13 +40,14 @@ export function ImageGallery({ items, layout = 'grid' }: ImageGalleryProps) {
                 }`}
                 onClick={() => setIndex(i)}
                 >
-                    <Image 
+                    <OptimizedImage 
                         src={item.src} 
                         alt={item.alt} 
                         fill={layout === "grid"}
                         width={layout === "masonry" ? 800 : undefined}
                         height={layout === "masonry" ? 600 : undefined}
                         className="object-cover transition-transform duration-300 hover:scale-105"
+                        containerClassName="h-full w-full"
                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                         />
                     

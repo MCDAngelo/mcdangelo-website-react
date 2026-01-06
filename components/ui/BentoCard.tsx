@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
+import { OptimizedImage } from './OptimizedImage';
 import Link from 'next/link';
 import { ReactNode } from 'react';
 
@@ -47,11 +47,13 @@ export function BentoCard({
           {/* Background Image (if provided) */}
           {image && (
             <div className="absolute inset-0">
-              <Image
+              <OptimizedImage
                 src={image}
                 alt={title || ''}
                 fill
                 className="object-cover opacity-40 transition-opacity group-hover:opacity-60"
+                containerClassName="h-full w-full"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
               {/* Gradient overlay for text readability */}
               <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
