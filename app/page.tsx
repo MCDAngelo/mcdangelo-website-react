@@ -9,7 +9,8 @@
 
 import { motion } from 'framer-motion';
 import { BentoCard } from '@/components/ui/BentoCard';
-import { Hero } from '@/components/sections/Hero';
+// import { Hero } from '@/components/sections/Hero';
+import { HeroFluid } from '@/components/sections/HeroFluid'; // Option B: Swap this with Hero below to see the alternative design
 import { getFeaturedProjects, artPieces, adventures } from '@/lib/content';
 import { getAssetUrl } from '@/lib/assets';
 
@@ -23,8 +24,8 @@ export default function Home() {
 
   return (
     <main>
-      <Hero />
-      <div className="container mx-auto px-4 pb-20">
+      <HeroFluid />
+      <div className="container mx-auto px-4 pt-24 pb-20">
         <h2 className="mb-12 text-4xl font-bold md:text-5xl">
           Featured Work
         </h2>
