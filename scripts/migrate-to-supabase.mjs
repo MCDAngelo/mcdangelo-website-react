@@ -80,6 +80,13 @@ async function ensureBucketsExist() {
 
       if (!bucketExists) {
         log(`Creating bucket: ${bucketName}`, 'yellow');
+        
+        // Check if we are using the service role key
+        if (!process.env.SUPABASE_SERVICE_ROLE_KEY) {
+          log('⚠ Warning: SUPABASE_SERVICE_ROLE_KEY is missing. Creating buckets might fail with RLS error.', 'yellow');
+          log('  Add SUPABASE_SERVICE_ROLE_KEY to your .env.local file to fix this.', 'yellow');
+        }
+
         const { data, error } = await supabase.storage.createBucket(bucketName, {
           public: true,
           fileSizeLimit: type === 'pdfs' ? 10485760 : 5242880, // 10MB for PDFs, 5MB for images
